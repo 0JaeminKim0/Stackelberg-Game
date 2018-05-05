@@ -18,7 +18,12 @@ final class leader extends PlayerImpl{
     //get value of history data
     private record data[];
 
-    
+    private leader() throws RemoteException, NotBoundException
+	{
+		super(PlayerType.LEADER, "Leader");
+	}
+
+
     //estimating the reaction Function
     private void estimatedReactionFunction(int latestDate){
         double sum_L = 0;

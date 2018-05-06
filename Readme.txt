@@ -1,38 +1,11 @@
-******************
-* 1.Introduction *
-******************
-
-This experiment platform is implemented using Java SE 6 with RMI, so that you can implement your own Java classes and run them without knowing the detail of the platform.
-
-To do so, you need to implement a leader class by extending the abstract class PlayerImpl in package comp34120.ex2, and some essential source codes are under /src.
-
-**********************
-* 2.Running the demo *
-**********************
-
-A very simple example of leader class, SimpleLeader, has been provided, and its source code is under /src as well.
-
-To run the simulation with the SimpleLeader, you need to
-
-i) run
 
 /usr/java/latest/bin/rmiregistry &
 
-to enable RMI registration;
-
-ii) run
-
 java -classpath poi-3.7-20101029.jar: -Djava.rmi.server.hostname=127.0.0.1 comp34120.ex2.Main &
 
-to run the GUI of the platform;
-
-iii) run
+java -Djava.rmi.server.hostname=127.0.0.1 leader &
 
 java -Djava.rmi.server.hostname=127.0.0.1 SimpleLeader &
-
-to run the SimpleLeader.
-
-And after these steps, you can play with the GUI to get some ideas of how the platform works.
 
 ****************************************
 * 3.Implementing your own leader class *

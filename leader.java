@@ -1,5 +1,8 @@
 //import src.*;
-import comp34120.ex2.*;
+//import comp34120.ex2.*;
+import comp34120.ex2.PlayerImpl;
+import comp34120.ex2.PlayerType;
+import comp34120.ex2.Record;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Random;
@@ -20,15 +23,13 @@ final class leader extends PlayerImpl{
     private Record data[];
     //get the value of estimated reaction function
     //rf.reactionFunction payoff = null;
+    //private rf.reactionFunction payoff = null;
 
     private leader() throws RemoteException, NotBoundException
 	  {
 		    super(PlayerType.LEADER, "Leader");
     }
 
-    private record(){
-      this.data = new Record[100];
-    }
 
     //estimating the reaction Function
     private void estimatedReactionFunction(int latestDate){
@@ -47,7 +48,7 @@ final class leader extends PlayerImpl{
           Record record = this.data[s_day];
           sum_L = record.m_leaderPrice;
           sum_F = record.m_followerPrice;
-          sum_L2 = Math.pow(day.m_leaderPrice, 2);
+          sum_L2 = Math.pow(record.m_leaderPrice, 2);
           sum_LF = record.m_leaderPrice * record.m_followerPrice;
         }
 
@@ -72,8 +73,7 @@ final class leader extends PlayerImpl{
     //
     public static void main(final String[] p_args) throws RemoteException, NotBoundException{
       new leader();
-      //system.out.println("a: " + rf.a + "b: " + rf.b);
-      system.out.println(data);
+
     }
 
 
